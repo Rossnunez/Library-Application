@@ -1,0 +1,33 @@
+HASHMAPS:
+In this application, in order to collect all users and their data a HashMap is required. Since our user database is a fixed number
+and the username must be unique, a HashMap is needed to add and sort unique users. Which is vital when the user HashMap is used
+for searching, such as editing user information, adding/removing user information. Since the program is consistently searching, adding
+and removing users from a large database a HashMap, with its Big O Complexity of O(1), and in a worst case scenario O(n),
+this makes moving through the user database efficient.
+
+
+TREEMAPS:
+In this application the program requires a data structure to collect all the books within the library. The program needs to have to 
+ability to search, add/remove, update within a data structure that has no fixed number as the library can have a unlimited number
+of books. Although HashMaps and TreeMaps have keys that help sort the data that is inserted, TreeMaps don't need a fixed size when
+being declared. Which is great for collecting books efficiently  since TreeMaps have a Big O Complexity of O(logN) 
+for searching and insertion. TreeMaps are also used for storing the users BrowsingHistory in order to allow optimal searching.
+
+
+LINKEDLIST:
+The user's browsing history brings us to the Linked List data structures. In order for the program to run efficiently the program
+is required to display all the sorted books in the user's browsing history. While the browsing history of TreeSets are efficient at
+searching, they are slow at displaying compared to LinkedList. When displaying all books in the browsing history the entire linked 
+list is added to a collection list which is displayed upon a tableview which gives us a Big O Complexity of O(1).
+
+In this application the program is required to collect all books that are overdue within the entire userdata base. This collection
+is an unfixed number and needs to by isbn in order to optimize the data structures searching ability to give it a Big O Complexity
+of O(nlog(n)).
+
+
+HASHSET:
+In this application the program is required to spell check the book title entry, when the user search's for books by title. This data
+structure is a fixed number, as a dictionary file is included in the program with a fixed number of words. This is why HashSets, 
+which are a unsorted collection of unique words, are needed to allow the program to search through the hashset to check if the user's
+title entry is spelled correctly. This sole process of checking to see if a word is contained in the dictionary hashset has a 
+Big O Complexity of O(1).

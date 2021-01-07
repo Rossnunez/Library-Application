@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="570.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerEditUsers">
+   <children>
+      <TabPane layoutX="44.0" layoutY="17.0" prefHeight="570.0" prefWidth="644.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab text="Create User">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="25.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
+                        <Text layoutX="25.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" />
+                        <Text layoutX="23.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+                        <Text layoutX="24.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phonenumber:" />
+                        <Text layoutX="27.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" />
+                        <TextField fx:id="firstName" layoutX="23.0" layoutY="186.0" />
+                        <TextField fx:id="lastName" accessibleRole="TEXT" layoutX="23.0" layoutY="248.0" />
+                        <TextField fx:id="password" layoutX="24.0" layoutY="314.0" />
+                        <TextField fx:id="address" layoutX="25.0" layoutY="373.0" />
+                        <ImageView fx:id="photo" fitHeight="170.0" fitWidth="200.0" layoutX="386.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Downloads/user.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="phoneNumber" layoutX="23.0" layoutY="431.0" />
+                        <Text fill="#da1313" layoutX="20.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin View of," wrappingWidth="197.47003173828125">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="usernameText1" layoutX="32.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Creating Users" wrappingWidth="174.13674926757812">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Text>
+                        <ComboBox fx:id="accountStatusBox" layoutX="192.0" layoutY="186.0" prefHeight="25.0" prefWidth="104.0" promptText="User Status" />
+                        <ComboBox fx:id="accountTypeBox" layoutX="192.0" layoutY="128.0" prefWidth="150.0" promptText="Account Type" />
+                        <Text layoutX="28.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
+                        <TextField fx:id="username" layoutX="25.0" layoutY="128.0" />
+                        <Button layoutX="424.0" layoutY="224.0" mnemonicParsing="false" onAction="#changeImage" prefHeight="48.0" prefWidth="95.0" text="Change Image" />
+                        <Button layoutX="425.0" layoutY="316.0" mnemonicParsing="false" onAction="#createUser" prefHeight="47.0" prefWidth="94.0" text="Create User" />
+                        <Button layoutX="425.0" layoutY="420.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="47.0" prefWidth="94.0" text="Back to Menu" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Search for All Users">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Separator layoutY="122.0" prefHeight="20.0" prefWidth="500.0" scaleY="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="122.0" />
+                        <TableView fx:id="table" layoutY="129.0" onMouseClicked="#checkIn" prefHeight="307.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <columns>
+                              <TableColumn prefWidth="106.0" text="User">
+                                 <columns>
+                                    <TableColumn fx:id="usernameColumn" prefWidth="75.0" text="Username" />
+                                    <TableColumn fx:id="userStatus" prefWidth="75.0" text="User Status" />
+                                 </columns>
+                              </TableColumn>
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Text fill="#f90606" layoutX="20.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search for Users:" wrappingWidth="223.12237548828125">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="searchBar" layoutX="21.0" layoutY="54.0" prefHeight="25.0" prefWidth="286.0" promptText="Search for Username" />
+                        <Button layoutX="21.0" layoutY="88.0" mnemonicParsing="false" onAction="#enter" prefHeight="25.0" prefWidth="67.0" text="Enter" />
+                        <Text fx:id="selectionText" layoutX="100.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No user is selected" wrappingWidth="259.80340576171875" />
+                        <Text layoutX="15.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected User:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="475.0" layoutY="479.0" mnemonicParsing="false" onAction="#removeUser" text="Remove User" />
+                        <Button layoutX="300.0" layoutY="479.0" mnemonicParsing="false" onAction="#changeUserStatus" text="Change User Status" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Search for OverDue Book Users">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Separator layoutY="122.0" prefHeight="20.0" prefWidth="500.0" scaleY="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="122.0" />
+                        <TableView fx:id="table11" layoutY="129.0" onMouseClicked="#checkIn1" prefHeight="307.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <columns>
+                              <TableColumn prefWidth="106.0" text="User">
+                                 <columns>
+                                    <TableColumn fx:id="usernameColumn1" prefWidth="75.0" text="Username" />
+                                    <TableColumn fx:id="userStatus1" prefWidth="75.0" text="User Status" />
+                                 </columns>
+                              </TableColumn>
+                              <TableColumn prefWidth="157.0" text="Overdue Books">
+                                 <columns>
+                                    <TableColumn fx:id="title" prefWidth="75.0" text="Title" />
+                                    <TableColumn fx:id="isbn" prefWidth="161.99993896484375" text="ISBN" />
+                                    <TableColumn fx:id="author" minWidth="0.0" prefWidth="126.0" text="Author" />
+                                    <TableColumn fx:id="price" minWidth="0.0" prefWidth="62.0" text="Price" />
+                                    <TableColumn fx:id="dueDate" minWidth="0.0" prefWidth="126.0" text="Due Date" />
+                                 </columns>
+                              </TableColumn>
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Text fill="#f90606" layoutX="21.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search for Users with OverDue Books:" wrappingWidth="480.12237548828125">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <ComboBox fx:id="searchByBox" layoutX="325.0" layoutY="54.0" prefWidth="150.0" promptText="Search By" />
+                        <TextField fx:id="searchBar1" layoutX="21.0" layoutY="54.0" prefHeight="25.0" prefWidth="286.0" promptText="Search Username/Overdue ISBN" />
+                        <Button layoutX="21.0" layoutY="88.0" mnemonicParsing="false" onAction="#enter1" prefHeight="25.0" prefWidth="67.0" text="Enter" />
+                        <Text fx:id="selectionText11" layoutX="100.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No user is selected" wrappingWidth="259.80340576171875" />
+                        <Text layoutX="15.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected User:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="475.0" layoutY="479.0" mnemonicParsing="false" onAction="#removeUser1" text="Remove User" />
+                        <Button layoutX="300.0" layoutY="479.0" mnemonicParsing="false" onAction="#changeUserStatus1" text="Change User Status" />
+                        <Button layoutX="229.0" layoutY="88.0" mnemonicParsing="false" onAction="#displayAll" prefHeight="25.0" prefWidth="77.0" text="Display All" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
